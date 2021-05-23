@@ -1,6 +1,7 @@
 const axios = require("axios");
 
-const URL = 'http://192.168.200.103/zyzx/public/index.php'
+const URL = 'https://hy2.budouer.com/zyzx/public/index.php'
+// const URL = 'http://192.168.200.103/zyzx/public/index.php'
 
 class RouterController {
 
@@ -31,6 +32,7 @@ class RouterController {
 
     static async login(ctx) {
         const input = ctx.request.body
+        console.log(input)
         const params = new URLSearchParams();
         params.append("username", input.username)
         params.append("password", input.password)
