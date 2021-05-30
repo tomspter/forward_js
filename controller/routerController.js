@@ -135,10 +135,8 @@ class RouterController {
         const input = ctx.request.body
         console.log(input)
         const params = new URLSearchParams();
-        params.append("page", input.page)
-        params.append("rows", input.rows)
-        params.append("sort", input.sort)
-        params.append("order", input.order)
+        params.append("admin_id", input.admin_id)
+        params.append("ids", input.ids)
         const response = await axios.post(URL + '/admin/Ksbaseinfo/setConsultUser',params);
         ctx.body = {
             code: 200,
