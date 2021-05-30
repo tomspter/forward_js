@@ -14,7 +14,6 @@ class RouterController {
         params.append("sort", input.sort)
         params.append("order", input.order)
 
-        console.log(input.sjnf)
         params.append("sjnf", input.sjnf)
         params.append("pcdm_str", input.pcdm)
         params.append("ssdm_str", input.ssdm)
@@ -101,6 +100,94 @@ class RouterController {
             msg: "success"
         }
     }
+
+    static async getKsBaseInfoList(ctx) {
+        const input = ctx.request.body
+        console.log(input)
+        const params = new URLSearchParams();
+        params.append("page", input.page)
+        params.append("rows", input.rows)
+        params.append("sort", input.sort)
+        params.append("order", input.order)
+
+        params.append("ks_ksh", input.ks_ksh)
+        params.append("ks_xm", input.ks_xm)
+        params.append("ks_lxdh", input.ks_lxdh)
+        params.append("ks_xbdm", input.ks_xbdm)
+        const response = await axios.post(URL + '/admin/Ksbaseinfo/getKsBaseInfoList',params);
+        ctx.body = {
+            code: 200,
+            data: response.data,
+            msg: "success"
+        }
+    }
+
+    static async getAdminUserSelect(ctx){
+        const response = await axios.post(URL + '/admin/Adminuser/getAdminUserSelect');
+        ctx.body = {
+            code: 200,
+            data: response.data,
+            msg: "success"
+        }
+    }
+
+    static async setConsultUser(ctx){
+        const input = ctx.request.body
+        console.log(input)
+        const params = new URLSearchParams();
+        params.append("page", input.page)
+        params.append("rows", input.rows)
+        params.append("sort", input.sort)
+        params.append("order", input.order)
+        const response = await axios.post(URL + '/admin/Ksbaseinfo/setConsultUser',params);
+        ctx.body = {
+            code: 200,
+            data: response.data,
+            msg: "success"
+        }
+    }
+
+    static async getKsConsultList(ctx){
+        const input = ctx.request.body
+        console.log(input)
+        const params = new URLSearchParams();
+        params.append("page", input.page)
+        params.append("rows", input.rows)
+        params.append("sort", input.sort)
+        params.append("order", input.order)
+        params.append("user_id",input.user_id)
+        const response = await axios.post(URL + '/admin/Ksconsult/getKsConsultList',params);
+        // console.log(response.data)
+        ctx.body = {
+            code: 200,
+            data: response.data,
+            msg: "success"
+        }
+    }
+
+    static async getKsConsultFilterList(ctx){
+            const input = ctx.request.body
+            console.log(input)
+            const params = new URLSearchParams();
+            params.append("page", input.page)
+            params.append("rows", input.rows)
+            params.append("sort", input.sort)
+            params.append("order", input.order)
+            params.append("user_id",input.user_id)
+
+            params.append("sjnf", input.sjnf)
+            params.append("pcdm_str", input.pcdm)
+            params.append("ssdm_str", input.ssdm)
+            params.append("zyzdm_str", input.zyzdm)
+            params.append("yxdm_str", input.yxdm)
+            const response = await axios.post(URL + '/admin/Ksconsult/getKsConsultFilterList',params);
+            // console.log(response.data)
+            ctx.body = {
+                code: 200,
+                data: response.data,
+                msg: "success"
+            }
+        }
 
 }
 

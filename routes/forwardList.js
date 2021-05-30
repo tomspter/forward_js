@@ -8,5 +8,10 @@ router.post('/getSsdmSelect',RouterController.getSsdmSelect)
 router.post('/getSjnfSelect',RouterController.getSjnfSelect)
 router.post('/getPrevPcdmSelect',RouterController.getPrevPcdmSelect)
 router.post('/getZyzdmSelect',RouterController.getZyzdmSelect)
+router.post('/getKsBaseInfoList',RouterController.getKsBaseInfoList)
+router.post('/getAdminUserSelect',RouterController.getAdminUserSelect)
+router.post('/setConsultUser',RouterController.setConsultUser)
+router.post('/getKsConsultList',RouterController.getKsConsultList)
+router.post('/getKsConsultFilterList',RouterController.getKsConsultFilterList)
 
 module.exports = router
